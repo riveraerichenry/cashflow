@@ -1,157 +1,111 @@
-import Sidebar from "@/components/layout/Sidebar";
-import Header from "@/components/layout/Header";
 
-import SummaryCards from "@/components/dashboard/SummaryCards";
-import EmployeeBalances from "@/components/dashboard/EmployeeBalances";
-import RecentTransactions from "@/components/dashboard/RecentTransactions";
-
+import Link from "next/link";
 import {
-  ArrowDownCircle,
-  ArrowUpCircle,
-  Plus,
+    ArrowRight,
+    Wallet,
+    ShieldCheck,
 } from "lucide-react";
 
-export default function DashboardPage() {
-  return (
-    <div className="min-h-screen bg-[#F8FAFC]">
-      <Sidebar />
+export default function HomePage() {
+    return (
+        <main className="flex min-h-screen flex-col bg-white">
 
-      <main className="min-h-screen pl-[82px] lg:pl-[260px]">
-        <Header />
+            {/* HEADER */}
+            <header className="w-full border-b border-slate-100">
+                <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
 
-        <div className="space-y-7 p-5 md:p-8">
-          {/* PAGE TITLE */}
-          <section className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-            <div>
-              <h1 className="text-2xl font-bold text-slate-900">
-                Business Overview
-              </h1>
+                    <Link href="/" className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-700 text-xl font-bold text-white">
+                            C
+                        </div>
 
-              <p className="mt-1 text-sm text-slate-500">
-                Monitor your business cash, employees, and transactions.
-              </p>
-            </div>
+                        <span className="text-xl font-bold tracking-tight text-slate-900">
+                            Cash<span className="text-blue-700">Flow</span>
+                        </span>
+                    </Link>
 
-            <div className="flex flex-wrap gap-2">
-              <button className="flex items-center gap-2 rounded-xl bg-[#F97316] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#EA580C]">
-                <ArrowDownCircle size={18} />
-                Cash In
-              </button>
+                    <span className="hidden text-sm text-slate-400 sm:block">
+                        Business Cash Monitoring System
+                    </span>
 
-              <button className="flex items-center gap-2 rounded-xl bg-[#1D4ED8] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1E40AF]">
-                <ArrowUpCircle size={18} />
-                Cash Out
-              </button>
-            </div>
-          </section>
-
-          {/* SUMMARY CARDS */}
-          <SummaryCards />
-
-          {/* CASH SUMMARY */}
-          <section className="grid grid-cols-1 gap-5 xl:grid-cols-3">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#173B75] to-[#1D4ED8] p-6 text-white shadow-sm xl:col-span-2">
-              <div className="absolute -right-12 -top-16 h-64 w-64 rounded-full border-[30px] border-white/5" />
-              <div className="absolute -bottom-24 right-36 h-64 w-64 rounded-full border-[30px] border-white/5" />
-
-              <div className="relative z-10">
-                <p className="text-sm font-medium text-blue-100">
-                  Total Available Business Cash
-                </p>
-
-                <h2 className="mt-3 text-4xl font-bold tracking-tight">
-                  ₱250,000.00
-                </h2>
-
-                <p className="mt-3 text-xs text-blue-100">
-                  Combined available balance across all business cash accounts
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <div className="rounded-xl border border-white/10 bg-white/10 px-4 py-3">
-                    <p className="text-xs text-blue-100">
-                      Cash Accounts
-                    </p>
-                    <p className="mt-1 text-lg font-bold">
-                      ₱170,000.00
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl border border-white/10 bg-white/10 px-4 py-3">
-                    <p className="text-xs text-blue-100">
-                      Employee Funds
-                    </p>
-                    <p className="mt-1 text-lg font-bold">
-                      ₱80,000.00
-                    </p>
-                  </div>
                 </div>
-              </div>
+            </header>
 
-              <div className="absolute right-6 top-6 hidden h-14 w-14 items-center justify-center rounded-2xl bg-[#F97316] sm:flex">
-                <Plus size={28} />
-              </div>
-            </div>
+            {/* MAIN */}
+            <section className="flex flex-1 items-center justify-center px-5 py-16 sm:px-8">
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-bold text-slate-800">
-                Quick Actions
-              </h3>
+                <div className="w-full max-w-2xl text-center">
 
-              <p className="mt-1 text-xs text-slate-500">
-                Manage your cash operations
-              </p>
+                    {/* ICON */}
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+                        <Wallet size={32} strokeWidth={1.7} />
+                    </div>
 
-              <div className="mt-6 space-y-3">
-                <button className="flex w-full items-center gap-3 rounded-xl border border-orange-100 bg-orange-50 p-4 text-left transition hover:border-orange-300">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F97316] text-white">
-                    <ArrowDownCircle size={20} />
-                  </div>
+                    {/* TITLE */}
+                    <h1 className="mt-8 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                        Manage Your Cash.
+                        <span className="block text-blue-700">
+                            Simplify Your Business.
+                        </span>
+                    </h1>
 
-                  <div>
-                    <p className="text-sm font-bold text-slate-800">
-                      Record Cash In
+                    <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-slate-500 sm:text-base">
+                        A centralized platform for monitoring cash flow,
+                        managing accounts, tracking transactions, and
+                        maintaining employee accountability.
                     </p>
-                    <p className="text-xs text-slate-500">
-                      Add incoming cash
+
+                    {/* LOGIN OPTIONS */}
+                    <div className="mx-auto mt-10 grid w-full max-w-md gap-4 sm:grid-cols-2">
+
+                        <Link
+                            href="/login"
+                            className="group flex min-h-[120px] flex-col items-center justify-center gap-3 rounded-2xl bg-blue-700 p-6 text-white shadow-lg shadow-blue-700/10 transition hover:-translate-y-1 hover:bg-blue-800"
+                        >
+                            <Wallet size={26} />
+
+                            <span className="text-base font-semibold">
+                                Business Login
+                            </span>
+
+                            <span className="flex items-center gap-2 text-xs text-blue-100">
+                                Owner & Employee
+                                <ArrowRight size={14} />
+                            </span>
+                        </Link>
+
+                        <Link
+                            href="/system-admin/login"
+                            className="group flex min-h-[120px] flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-6 text-slate-800 transition hover:-translate-y-1 hover:border-blue-300 hover:bg-slate-50"
+                        >
+                            <ShieldCheck size={26} className="text-orange-500" />
+
+                            <span className="text-base font-semibold">
+                                Admin Login
+                            </span>
+
+                            <span className="flex items-center gap-2 text-xs text-slate-400">
+                                System Administrator
+                                <ArrowRight size={14} />
+                            </span>
+                        </Link>
+
+                    </div>
+
+                    <p className="mt-10 text-xs text-slate-400">
+                        Secure access to your CashFlow account.
                     </p>
-                  </div>
-                </button>
 
-                <button className="flex w-full items-center gap-3 rounded-xl border border-blue-100 bg-blue-50 p-4 text-left transition hover:border-blue-300">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1D4ED8] text-white">
-                    <ArrowUpCircle size={20} />
-                  </div>
+                </div>
+            </section>
 
-                  <div>
-                    <p className="text-sm font-bold text-slate-800">
-                      Request Withdrawal
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      Submit for owner approval
-                    </p>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </section>
+            {/* FOOTER */}
+            <footer className="border-t border-slate-100 px-5 py-6 text-center">
+                <p className="text-xs text-slate-400">
+                    © {new Date().getFullYear()} CashFlow. All rights reserved.
+                </p>
+            </footer>
 
-          {/* EMPLOYEES */}
-          <section>
-            <EmployeeBalances />
-          </section>
-
-          {/* TRANSACTIONS */}
-          <section>
-            <RecentTransactions />
-          </section>
-
-          {/* FOOTER */}
-          <footer className="border-t border-slate-200 pt-5 text-center text-xs text-slate-400">
-            CashFlow Business Cash Monitoring System
-          </footer>
-        </div>
-      </main>
-    </div>
-  );
+        </main>
+    );
 }
